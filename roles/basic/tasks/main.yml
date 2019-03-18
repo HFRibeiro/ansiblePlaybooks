@@ -1,2 +1,9 @@
-- name: "Installing VIM"
-  apt: pkg=vim state=present
+- name: "Installing Packs"
+  apt: pkg={{ item }} state=present
+  with_items:
+  - vim
+  - dnsutils
+  - arduino
+
+- name: "Copying files"
+  copy: src=../files/file2.txt dest=/home/code owner=code group=code mode=0644
