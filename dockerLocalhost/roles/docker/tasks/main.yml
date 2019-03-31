@@ -74,11 +74,14 @@
     ansible_distribution_file_variety: {{ ansible_distribution_file_variety }} ansible_architecture: {{ ansible_architecture }}\
     ansible_system : {{ ansible_system }}"
 
-- name: Install docker-compose
+- name: "Install docker-compose"
   shell: |
     curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}" -o /usr/local/bin/docker-compose
     chmod +x /usr/local/bin/docker-compose
 
-- name: "Rebooting the machine with all defaults"
-  reboot:
+- name: Restart
+  command: /sbin/shutdown -r +1
+  async: 0
+  poll: 0
+  ignore_errors: tru
 
