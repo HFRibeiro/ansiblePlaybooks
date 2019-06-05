@@ -30,4 +30,7 @@
     name: "code=1.33.1-1554971066"
     state: present
 
+- name: install pylint
+  shell: |
+    /usr/bin/python3 -m pip install -U pylint --user
 
