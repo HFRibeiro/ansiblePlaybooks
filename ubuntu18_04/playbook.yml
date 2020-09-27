@@ -1,0 +1,8 @@
+---
+- hosts: development
+  become: true
+  roles:
+  - docker
+  - npm_node
+  - vscode
+  - chrome
